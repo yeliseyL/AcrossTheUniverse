@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 import java.net.UnknownHostException
 
 class PictureOfDayViewModel: ViewModel() {
-
     private val _pictureOfDay = MutableLiveData<PictureOfDay>()
     val pictureOfDay: LiveData<PictureOfDay>
         get() = _pictureOfDay
@@ -35,7 +34,7 @@ class PictureOfDayViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 _pictureOfDay.value = NASAApi.retrofitPictureService.getPictureOfTheDay(getYesterday(),
-                    BuildConfig.API_KEY)
+                        BuildConfig.API_KEY)
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")
             }
@@ -46,11 +45,10 @@ class PictureOfDayViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 _pictureOfDay.value = NASAApi.retrofitPictureService.getPictureOfTheDay(
-                    getDayBeforeYesterday(), BuildConfig.API_KEY)
+                        getDayBeforeYesterday(), BuildConfig.API_KEY)
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")
             }
         }
     }
-
 }

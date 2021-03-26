@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.databinding.FragmentPictureOfDayBinding
 import com.eliseylobanov.acrosstheuniverse.ui.MainActivity
@@ -28,8 +30,8 @@ class PictureOfDayFragment : Fragment(R.layout.fragment_picture_of_day) {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPictureOfDayBinding.inflate(inflater)
         binding.lifecycleOwner = this
@@ -73,7 +75,7 @@ class PictureOfDayFragment : Fragment(R.layout.fragment_picture_of_day) {
             } else {
                 isMain = true
                 binding.bottomAppBar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.ic_baseline_dehaze_24)
+                        ContextCompat.getDrawable(context, R.drawable.ic_baseline_dehaze_24)
                 binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
                 binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_add_24))
                 binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
@@ -89,7 +91,8 @@ class PictureOfDayFragment : Fragment(R.layout.fragment_picture_of_day) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_bar_fav -> Toast.makeText(requireContext(), "Favourites", Toast.LENGTH_SHORT).show()
-            R.id.app_bar_settings -> Toast.makeText(requireContext(), "Settings", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_settings -> this.findNavController()
+                    .navigate(R.id.action_photoOfDayFragment_to_settingsFragment)
             android.R.id.home -> {
                 activity?.let {
 //                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
@@ -98,7 +101,6 @@ class PictureOfDayFragment : Fragment(R.layout.fragment_picture_of_day) {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
 
 }

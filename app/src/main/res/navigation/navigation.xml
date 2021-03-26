@@ -9,5 +9,17 @@
         android:id="@+id/photoOfDayFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.pictureofday.PictureOfDayFragment"
         android:label="fragment_photo_of_day"
-        tools:layout="@layout/fragment_picture_of_day" />
+        tools:layout="@layout/fragment_picture_of_day" >
+        <action
+            android:id="@+id/action_photoOfDayFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.eliseylobanov.acrosstheuniverse.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_photoOfDayFragment"
+            app:destination="@id/photoOfDayFragment" />
+    </fragment>
 </navigation>
