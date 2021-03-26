@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -20,22 +21,12 @@
                 android:id="@+id/main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp">
+                android:paddingStart="@dimen/padding_main"
+                android:paddingEnd="@dimen/padding_main">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_layout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/search_wiki"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="20"
-                    app:endIconCheckable="true"
-                    app:endIconDrawable="@drawable/ic_wikipedia"
-                    app:endIconMode="custom"
-                    app:helperText="@string/wiki_helper_text"
+                    style="@style/AcrossTheUniverse.AppTextField"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -43,69 +34,49 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="wrap_content" />
 
-                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <FrameLayout
-                    android:id="@+id/chipContainer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    style="@style/AcrossTheUniverse.ChipGroup"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/input_layout">
 
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/chipGroup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/dayBeforeYesterday"
+                        style="@style/AcrossTheUniverse.Chip"
+                        android:text="@string/day_before_yesterday" />
 
-                        app:singleSelection="true">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/yesterday"
+                        style="@style/AcrossTheUniverse.Chip"
+                        android:text="@string/yesterday" />
 
-                        <com.google.android.material.chip.Chip
-                            style="@style/Widget.MaterialComponents.Chip.Choice"
-                            android:id="@+id/dayBeforeYesterday"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Day Before Yesterday" />
-
-                        <com.google.android.material.chip.Chip
-                            style="@style/Widget.MaterialComponents.Chip.Choice"
-                            android:id="@+id/yesterday"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Yesterday" />
-
-                        <com.google.android.material.chip.Chip
-                            style="@style/Widget.MaterialComponents.Chip.Choice"
-                            android:id="@+id/today"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Today" />
-                    </com.google.android.material.chip.ChipGroup>
-                </FrameLayout>
-
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/today"
+                        style="@style/AcrossTheUniverse.Chip"
+                        android:text="@string/today" />
+                </com.google.android.material.chip.ChipGroup>
 
                 <ImageView
                     android:id="@+id/image_view"
                     android:layout_width="match_parent"
-                    android:layout_height="320dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="@dimen/imageView_height"
+                    android:layout_marginTop="@dimen/margin_vertical"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/photo_of_the_day_stub"
                     android:scaleType="centerCrop"
                     app:imageUrl="@{viewModel.pictureOfDay.mediaType.equals(`image`) ? viewModel.pictureOfDay.url : null}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/chipContainer" />
+                    app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
 
                 <TextView
                     android:id="@+id/image_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    style="@style/AcrossTheUniverse.TextView.Header"
                     android:text="@{viewModel.pictureOfDay.title}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -113,9 +84,7 @@
 
                 <TextView
                     android:id="@+id/image_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    style="@style/AcrossTheUniverse.TextView"
                     android:text="@{viewModel.pictureOfDay.explanation}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -127,21 +96,11 @@
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:fabAlignmentMode="center"
-            app:hideOnScroll="true"
-            android:backgroundTint="@color/colorPrimary"
-            app:navigationIcon="@drawable/ic_baseline_dehaze_24" />
+            style="@style/AcrossTheUniverse.BottomAppBar" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_anchor="@id/bottom_app_bar"
-            app:srcCompat="@drawable/ic_baseline_add_24"
-            app:tint="#FFFFFF" />
+            style="@style/AcrossTheUniverse.Fab" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

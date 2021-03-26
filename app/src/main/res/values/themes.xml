@@ -1,8 +1,90 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <!-- Base application theme. -->
     <style name="Theme.AcrossTheUniverse" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/color_white</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/color_white</item>
+        <item name="android:statusBarColor">?colorPrimaryDark</item>
     </style>
+
+    <style name="Theme.AcrossTheUniverse.Mars">
+        <item name="colorPrimary">@color/colorPrimaryMars</item>
+        <item name="colorSecondary">@color/colorSecondaryMars</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkMars</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Theme.AcrossTheUniverse.Moon">
+        <item name="colorPrimary">@color/colorPrimaryMoon</item>
+        <item name="colorSecondary">@color/colorSecondaryMoon</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkMoon</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AcrossTheUniverse.TextView" parent="android:Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_vertical</item>
+    </style>
+
+    <style name="AcrossTheUniverse.TextView.Header">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="AcrossTheUniverse.AppTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_vertical</item>
+        <item name="android:hint">@string/search_wiki</item>
+        <item name="counterEnabled">true</item>
+        <item name="counterMaxLength">20</item>
+        <item name="endIconCheckable">true</item>
+        <item name="endIconDrawable">@drawable/ic_wikipedia</item>
+        <item name="endIconMode">custom</item>
+        <item name="helperText">@string/wiki_helper_text</item>
+    </style>
+
+    <style name="AcrossTheUniverse.ChipGroup" parent="Widget.MaterialComponents.ChipGroup">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="singleSelection">true</item>
+    </style>
+
+    <style name="AcrossTheUniverse.Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="PictureOfDayImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/imageView_height</item>
+        <item name="android:layout_marginTop">@dimen/margin_vertical</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:contentDescription">@string/photo_of_the_day_stub</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="AcrossTheUniverse.BottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="fabAlignmentMode">center</item>
+        <item name="hideOnScroll">true</item>
+        <item name="android:backgroundTint">?colorPrimary</item>
+        <item name="navigationIcon">@drawable/ic_baseline_dehaze_24</item>
+    </style>
+
+    <style name="AcrossTheUniverse.Fab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_anchor">@id/bottom_app_bar</item>
+        <item name="srcCompat">@drawable/ic_baseline_add_24</item>
+        <item name="tint">@color/design_default_color_on_primary</item>
+    </style>
+
 </resources>
