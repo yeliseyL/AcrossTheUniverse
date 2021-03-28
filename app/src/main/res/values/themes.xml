@@ -38,6 +38,7 @@
     </style>
 
     <style name="AcrossTheUniverse.TextView.Header">
+        <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
