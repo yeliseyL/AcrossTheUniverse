@@ -9,100 +9,89 @@
             type="com.eliseylobanov.acrosstheuniverse.ui.pictureofday.PictureOfDayViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/padding_main"
+            android:paddingEnd="@dimen/padding_main">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/main"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="@dimen/padding_main"
-                android:paddingEnd="@dimen/padding_main">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout"
+                style="@style/AcrossTheUniverse.AppTextField"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_layout"
-                    style="@style/AcrossTheUniverse.AppTextField"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroup"
-                    style="@style/AcrossTheUniverse.ChipGroup"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/input_layout">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/dayBeforeYesterday"
-                        style="@style/AcrossTheUniverse.Chip"
-                        android:text="@string/day_before_yesterday" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/yesterday"
-                        style="@style/AcrossTheUniverse.Chip"
-                        android:text="@string/yesterday" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/today"
-                        style="@style/AcrossTheUniverse.Chip"
-                        android:text="@string/today" />
-                </com.google.android.material.chip.ChipGroup>
-
-                <ImageView
-                    android:id="@+id/image_view"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/imageView_height"
-                    android:layout_marginTop="@dimen/margin_vertical"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/photo_of_the_day_stub"
-                    android:scaleType="centerCrop"
-                    app:imageUrl="@{viewModel.pictureOfDay.mediaType.equals(`image`) ? viewModel.pictureOfDay.url : null}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
+                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:id="@+id/image_title"
-                    style="@style/AcrossTheUniverse.TextView.Header"
-                    android:text="@{viewModel.pictureOfDay.title}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_view" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/image_description"
-                    style="@style/AcrossTheUniverse.TextView"
-                    android:text="@{viewModel.pictureOfDay.explanation}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_title" />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                style="@style/AcrossTheUniverse.ChipGroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_layout">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/dayBeforeYesterday"
+                    style="@style/AcrossTheUniverse.Chip"
+                    android:text="@string/day_before_yesterday" />
 
-        </androidx.core.widget.NestedScrollView>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/yesterday"
+                    style="@style/AcrossTheUniverse.Chip"
+                    android:text="@string/yesterday" />
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottom_app_bar"
-            style="@style/AcrossTheUniverse.BottomAppBar" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/today"
+                    style="@style/AcrossTheUniverse.Chip"
+                    android:text="@string/today" />
+            </com.google.android.material.chip.ChipGroup>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            style="@style/AcrossTheUniverse.Fab" />
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/imageView_height"
+                android:layout_marginTop="@dimen/margin_vertical"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/photo_of_the_day_stub"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{viewModel.pictureOfDay.mediaType.equals(`image`) ? viewModel.pictureOfDay.url : null}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <TextView
+                android:id="@+id/image_title"
+                style="@style/AcrossTheUniverse.TextView.Header"
+                android:text="@{viewModel.pictureOfDay.title}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_view" />
+
+            <TextView
+                android:id="@+id/image_description"
+                style="@style/AcrossTheUniverse.TextView"
+                android:text="@{viewModel.pictureOfDay.explanation}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
 
 </layout>
 

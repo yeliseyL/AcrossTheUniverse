@@ -2,7 +2,6 @@ package com.eliseylobanov.acrosstheuniverse
 
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 fun getYesterday(): String {
     val calendar = Calendar.getInstance()

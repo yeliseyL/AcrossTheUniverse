@@ -26,6 +26,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Theme.AcrossTheUniverse.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="colorPrimary">?colorPrimary</item>
+        <item name="colorOnPrimary">?colorOnPrimary</item>
+    </style>
+
     <style name="AcrossTheUniverse.TextView" parent="android:Widget.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -67,24 +72,6 @@
         <item name="android:adjustViewBounds">true</item>
         <item name="android:contentDescription">@string/photo_of_the_day_stub</item>
         <item name="android:scaleType">centerCrop</item>
-    </style>
-
-    <style name="AcrossTheUniverse.BottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">bottom</item>
-        <item name="fabAlignmentMode">center</item>
-        <item name="hideOnScroll">true</item>
-        <item name="android:backgroundTint">?colorPrimary</item>
-        <item name="navigationIcon">@drawable/ic_baseline_dehaze_24</item>
-    </style>
-
-    <style name="AcrossTheUniverse.Fab" parent="Widget.MaterialComponents.FloatingActionButton">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="layout_anchor">@id/bottom_app_bar</item>
-        <item name="srcCompat">@drawable/ic_baseline_add_24</item>
-        <item name="tint">@color/design_default_color_on_primary</item>
     </style>
 
 </resources>

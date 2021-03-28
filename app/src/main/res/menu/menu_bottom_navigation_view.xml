@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/pictureOfDayFragment"
+        android:icon="@drawable/ic_photo"
+        android:title="@string/pod" />
+
+    <item
+        android:id="@+id/earthFragment"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/earth" />
+
+    <item
+        android:id="@+id/marsFragment"
+        android:icon="@drawable/ic_mars"
+        android:title="@string/mars" />
+
+    <item
+        android:id="@+id/weatherFragment"
+        android:icon="@drawable/ic_weather"
+        android:title="@string/weather" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings" />
+</menu>

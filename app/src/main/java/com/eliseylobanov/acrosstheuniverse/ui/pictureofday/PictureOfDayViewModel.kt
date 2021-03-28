@@ -5,8 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eliseylobanov.acrosstheuniverse.*
+import com.eliseylobanov.acrosstheuniverse.BuildConfig
 import com.eliseylobanov.acrosstheuniverse.entities.PictureOfDay
+import com.eliseylobanov.acrosstheuniverse.getDayBeforeYesterday
+import com.eliseylobanov.acrosstheuniverse.getYesterday
 import com.eliseylobanov.acrosstheuniverse.network.NASAApi
 import kotlinx.coroutines.launch
 import java.net.UnknownHostException

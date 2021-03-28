@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.databinding.FragmentSettingsBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
     lateinit var binding: FragmentSettingsBinding
@@ -34,7 +36,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 R.id.moonRadioButton -> changeThemeTo(R.style.Theme_AcrossTheUniverse_Moon,
                         R.color.colorPrimaryDarkMoon)
             }
-            view.findNavController().navigate(R.id.action_settingsFragment_to_photoOfDayFragment)
+            view.findNavController().navigateUp()
         }
     }
 
@@ -47,5 +49,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             putInt(getString(R.string.saved_color), colorId)
             apply()
         }
+        requireActivity().recreate()
     }
 }

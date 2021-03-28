@@ -12,4 +12,8 @@
     <string name="today">Today</string>
     <string name="saved_theme">saved_theme</string>
     <string name="saved_color">saved_color</string>
+    <string name="pod">Picture</string>
+    <string name="earth">Earth</string>
+    <string name="mars">Mars</string>
+    <string name="weather">Weather</string>
 </resources>
