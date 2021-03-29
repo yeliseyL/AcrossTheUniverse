@@ -5,7 +5,6 @@ import com.eliseylobanov.acrosstheuniverse.entities.Mars
 import com.eliseylobanov.acrosstheuniverse.entities.PictureOfDay
 import com.eliseylobanov.acrosstheuniverse.entities.Weather
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface NASAApiPictureService {

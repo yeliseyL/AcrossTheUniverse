@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.eliseylobanov.acrosstheuniverse.databinding.EarthViewpagerItemBinding
-import com.eliseylobanov.acrosstheuniverse.databinding.MarsPhotoViewpagerItemBinding
 import com.eliseylobanov.acrosstheuniverse.entities.Earth
-import com.eliseylobanov.acrosstheuniverse.entities.Photo
 
 class EarthViewPagerAdapter: ListAdapter<Earth, EarthViewPagerAdapter.EarthViewHolder>(DiffCallback) {
 

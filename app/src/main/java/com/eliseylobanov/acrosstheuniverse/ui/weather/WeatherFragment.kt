@@ -24,6 +24,10 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
         binding = FragmentWeatherBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        val viewPagerAdapter = WeatherViewPagerAdapter()
+        binding.weatherViewPager.adapter = viewPagerAdapter
+
         return binding.root
     }
 }

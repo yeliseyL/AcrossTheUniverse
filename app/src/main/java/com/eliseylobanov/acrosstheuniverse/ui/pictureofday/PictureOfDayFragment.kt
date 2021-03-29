@@ -3,16 +3,13 @@ package com.eliseylobanov.acrosstheuniverse.ui.pictureofday
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
-import androidx.core.content.ContextCompat
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.databinding.FragmentPictureOfDayBinding
-import com.eliseylobanov.acrosstheuniverse.ui.MainActivity
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.chip.Chip
 
 

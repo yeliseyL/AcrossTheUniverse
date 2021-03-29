@@ -6,8 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eliseylobanov.acrosstheuniverse.BuildConfig
-import com.eliseylobanov.acrosstheuniverse.entities.Mars
-import com.eliseylobanov.acrosstheuniverse.entities.Weather
 import com.eliseylobanov.acrosstheuniverse.entities.WeatherItem
 import com.eliseylobanov.acrosstheuniverse.getDayBeforeYesterday
 import com.eliseylobanov.acrosstheuniverse.getYesterday
@@ -19,8 +17,8 @@ const val TYPE = "all"
 
 class WeatherViewModel: ViewModel() {
 
-    private val _weather = MutableLiveData<WeatherItem>()
-    val weather: LiveData<WeatherItem>
+    private val _weather = MutableLiveData<List<WeatherItem>>()
+    val weather: LiveData<List<WeatherItem>>
         get() = _weather
 
     init {
@@ -35,7 +33,7 @@ class WeatherViewModel: ViewModel() {
                         getDayBeforeYesterday(),
                         TYPE,
                         BuildConfig.API_KEY)
-                _weather.value = weatherResult[0]
+                _weather.value = weatherResult
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")
             }

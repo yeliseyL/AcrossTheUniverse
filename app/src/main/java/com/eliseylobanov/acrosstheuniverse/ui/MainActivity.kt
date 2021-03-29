@@ -2,13 +2,8 @@ package com.eliseylobanov.acrosstheuniverse.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.eliseylobanov.acrosstheuniverse.R
 import com.google.android.material.bottomnavigation.BottomNavigationView

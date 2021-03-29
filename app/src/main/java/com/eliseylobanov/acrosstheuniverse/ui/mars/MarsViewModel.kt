@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eliseylobanov.acrosstheuniverse.BuildConfig
-import com.eliseylobanov.acrosstheuniverse.entities.Earth
 import com.eliseylobanov.acrosstheuniverse.entities.Mars
 import com.eliseylobanov.acrosstheuniverse.entities.Photo
 import com.eliseylobanov.acrosstheuniverse.getYesterday
