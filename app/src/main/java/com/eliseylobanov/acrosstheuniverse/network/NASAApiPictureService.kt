@@ -1,6 +1,7 @@
 package com.eliseylobanov.acrosstheuniverse.network
 
 import com.eliseylobanov.acrosstheuniverse.entities.Earth
+import com.eliseylobanov.acrosstheuniverse.entities.Mars
 import com.eliseylobanov.acrosstheuniverse.entities.PictureOfDay
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,4 +16,7 @@ interface NASAApiPictureService {
 
     @GET("EPIC/api/natural/images")
     suspend fun getEarth(@Query("api_key") key: String): List<Earth>
+
+    @GET("mars-photos/api/v1/rovers/curiosity/photos")
+    suspend fun getMars(@Query("earth_date") date: String, @Query("api_key") key: String): Mars
 }
