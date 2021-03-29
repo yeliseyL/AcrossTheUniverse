@@ -19,25 +19,20 @@ class MarsViewModel: ViewModel() {
     val photos: LiveData<List<Photo>>
         get() = _photos
 
-    private val _marsUrl = MutableLiveData<String>()
-    val marsUrl: LiveData<String>
-        get() = _marsUrl
-
     private val _mars = MutableLiveData<Mars>()
     val mars: LiveData<Mars>
         get() = _mars
 
     init {
-        getMarsPicture()
+        getMars()
     }
 
-    private fun getMarsPicture() {
+    private fun getMars() {
         viewModelScope.launch {
             try {
                 val mars = NASAApi.retrofitEarthService.getMars(getYesterday(),
                         BuildConfig.API_KEY)
                 _mars.value = mars
-                _marsUrl.value = mars.photos[0].img_src
                 _photos.value = mars.photos
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")

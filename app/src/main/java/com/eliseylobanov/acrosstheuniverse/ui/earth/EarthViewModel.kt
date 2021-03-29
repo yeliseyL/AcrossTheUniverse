@@ -20,15 +20,19 @@ class EarthViewModel: ViewModel() {
     val earthUrl: LiveData<String>
         get() = _earthUrl
 
+    private val _earth = MutableLiveData<List<Earth>>()
+    val earth: LiveData<List<Earth>>
+        get() = _earth
+
     private val _earthPicture = MutableLiveData<Earth>()
     val earthPicture: LiveData<Earth>
         get() = _earthPicture
 
     init {
-        getEarthPicture()
+        getEarth()
     }
 
-    private fun getEarthPicture() {
+    private fun getEarth() {
         viewModelScope.launch {
             try {
                 val earth = NASAApi.retrofitEarthService.getEarth(
