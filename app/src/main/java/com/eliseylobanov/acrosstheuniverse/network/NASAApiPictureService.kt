@@ -13,6 +13,6 @@ interface NASAApiPictureService {
     @GET("planetary/apod")
     suspend fun getPictureOfTheDay(@Query("date") date: String, @Query("api_key") key: String): PictureOfDay
 
-    @GET("EPIC/api/natural/date/{date}")
-    suspend fun getEarth(@Path("date") date: String, @Query("api_key") key: String): List<Earth>
+    @GET("EPIC/api/natural/images")
+    suspend fun getEarth(@Query("api_key") key: String): List<Earth>
 }

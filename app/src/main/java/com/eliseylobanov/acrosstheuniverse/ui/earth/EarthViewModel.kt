@@ -8,14 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.eliseylobanov.acrosstheuniverse.BuildConfig
 import com.eliseylobanov.acrosstheuniverse.entities.Earth
 import com.eliseylobanov.acrosstheuniverse.entities.PictureOfDay
+import com.eliseylobanov.acrosstheuniverse.getDayBeforeYesterday
 import com.eliseylobanov.acrosstheuniverse.getYesterday
 import com.eliseylobanov.acrosstheuniverse.network.NASAApi
 import kotlinx.coroutines.launch
 import java.net.UnknownHostException
 
 class EarthViewModel: ViewModel() {
-
-    private val date = getYesterday().split("-")
 
     private val _earthUrl = MutableLiveData<String>()
     val earthUrl: LiveData<String>
@@ -32,15 +31,19 @@ class EarthViewModel: ViewModel() {
     private fun getEarthPicture() {
         viewModelScope.launch {
             try {
-                _earthPicture.value = NASAApi.retrofitEarthService.getEarth(
-                    getYesterday(),
+                val earth = NASAApi.retrofitEarthService.getEarth(
                     BuildConfig.API_KEY)[0]
+                _earthPicture.value = earth
+                val date = getSplitDate(earth)
                 _earthUrl.value =
                     "https://api.nasa.gov/EPIC/archive/natural/${date[0]}/${date[1]}/${date[2]}" +
-                            "/png/${earthPicture.value?.image}.png?api_key=${BuildConfig.API_KEY}"
+                            "/png/${earth.image}.png?api_key=${BuildConfig.API_KEY}"
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")
             }
         }
     }
+
+    private fun getSplitDate(earth: Earth) =
+            earth.date.split(" ")[0].split("-")
 }
