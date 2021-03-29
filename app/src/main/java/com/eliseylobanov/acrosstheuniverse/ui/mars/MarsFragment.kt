@@ -22,6 +22,10 @@ class MarsFragment : Fragment(R.layout.fragment_mars) {
         binding = FragmentMarsBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        val viewPagerAdapter = MarsViewPagerAdapter()
+        binding.marsViewPager.adapter = viewPagerAdapter
+
         return binding.root
     }
 }

@@ -9,75 +9,9 @@
             type="com.eliseylobanov.acrosstheuniverse.ui.mars.MarsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/marsViewPager"
+        app:listData="@{viewModel.photos}"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="@dimen/padding_main"
-        android:paddingEnd="@dimen/padding_main"
-        tools:context=".ui.earth.EarthFragment">
-
-        <TextView
-            android:id="@+id/marsDate"
-            style="@style/AcrossTheUniverse.TextView.Header"
-            android:text="@{viewModel.mars.photos.get(0).earth_date}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/image_Mars"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_vertical"
-            app:cardCornerRadius="@dimen/corner_radius"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/marsDate">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/photo_of_the_day_stub"
-                app:imageUrl="@{viewModel.marsUrl}"
-                android:scaleType="centerCrop" />
-
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/roverName"
-            style="@style/AcrossTheUniverse.TextView"
-            android:text="@{@string/rover_name(viewModel.mars.photos.get(0).rover.name)}"
-            app:layout_constraintStart_toStartOf="@+id/image_Mars"
-            app:layout_constraintTop_toBottomOf="@+id/image_Mars" />
-
-        <TextView
-            android:id="@+id/roverLanding"
-            style="@style/AcrossTheUniverse.TextView"
-            android:text="@{@string/rover_landing_date(viewModel.mars.photos.get(0).rover.landing_date)}"
-            app:layout_constraintStart_toStartOf="@+id/image_Mars"
-            app:layout_constraintTop_toBottomOf="@+id/roverName" />
-
-        <TextView
-            android:id="@+id/roverLaunch"
-            style="@style/AcrossTheUniverse.TextView"
-            android:text="@{@string/rover_launch_date(viewModel.mars.photos.get(0).rover.launch_date)}"
-            app:layout_constraintStart_toStartOf="@+id/image_Mars"
-            app:layout_constraintTop_toBottomOf="@+id/roverLanding" />
-
-        <TextView
-            android:id="@+id/roverStatus"
-            style="@style/AcrossTheUniverse.TextView"
-            android:text="@{@string/rover_status(viewModel.mars.photos.get(0).rover.status)}"
-            app:layout_constraintStart_toStartOf="@+id/image_Mars"
-            app:layout_constraintTop_toBottomOf="@+id/roverLaunch" />
-
-        <TextView
-            android:id="@+id/cameraName"
-            style="@style/AcrossTheUniverse.TextView"
-            android:text="@{@string/camera_name(viewModel.mars.photos.get(0).camera.full_name)}"
-            app:layout_constraintStart_toStartOf="@+id/roverName"
-            app:layout_constraintTop_toBottomOf="@+id/roverStatus" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent" />
 </layout>
