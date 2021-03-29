@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.databinding.FragmentEarthBinding
+import com.eliseylobanov.acrosstheuniverse.ui.mars.MarsViewPagerAdapter
 
 class EarthFragment : Fragment(R.layout.fragment_earth) {
 
@@ -22,6 +23,10 @@ class EarthFragment : Fragment(R.layout.fragment_earth) {
         binding = FragmentEarthBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        val viewPagerAdapter = EarthViewPagerAdapter()
+        binding.earthViewPager.adapter = viewPagerAdapter
+
         return binding.root
     }
 }

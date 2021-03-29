@@ -36,12 +36,12 @@ class EarthViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 val earth = NASAApi.retrofitEarthService.getEarth(
-                    BuildConfig.API_KEY)[0]
-                _earthPicture.value = earth
-                val date = getSplitDate(earth)
-                _earthUrl.value =
-                    "https://api.nasa.gov/EPIC/archive/natural/${date[0]}/${date[1]}/${date[2]}" +
-                            "/png/${earth.image}.png?api_key=${BuildConfig.API_KEY}"
+                    BuildConfig.API_KEY)
+                _earth.value = earth
+//                val date = getSplitDate(earth)
+//                _earthUrl.value =
+//                    "https://api.nasa.gov/EPIC/archive/natural/${date[0]}/${date[1]}/${date[2]}" +
+//                            "/png/${earth.image}.png?api_key=${BuildConfig.API_KEY}"
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")
             }
