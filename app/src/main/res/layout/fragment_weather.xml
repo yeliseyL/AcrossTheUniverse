@@ -9,34 +9,42 @@
             type="com.eliseylobanov.acrosstheuniverse.ui.weather.WeatherViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="@dimen/padding_main"
-        android:paddingEnd="@dimen/padding_main"
-        tools:context=".ui.earth.EarthFragment">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/weatherTime"
-            style="@style/AcrossTheUniverse.TextView.Header"
-            android:text="@{viewModel.weather.messageIssueTime}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/padding_main"
+            android:paddingEnd="@dimen/padding_main"
+            tools:context=".ui.earth.EarthFragment">
 
-        <TextView
-            android:id="@+id/weatherType"
-            style="@style/AcrossTheUniverse.TextView"
-            android:text="@{viewModel.weather.messageType}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/weatherTime" />
+            <TextView
+                android:id="@+id/weatherTime"
+                style="@style/AcrossTheUniverse.TextView.Header"
+                android:text="@{viewModel.weather.messageIssueTime}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/weatherBody"
-            style="@style/AcrossTheUniverse.TextView"
-            android:text="@{viewModel.weather.messageBody}"
-            app:layout_constraintStart_toStartOf="@+id/weatherType"
-            app:layout_constraintTop_toBottomOf="@+id/weatherType" />
+            <TextView
+                android:id="@+id/weatherType"
+                style="@style/AcrossTheUniverse.TextView"
+                android:text="@{viewModel.weather.messageType}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weatherTime" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/weatherBody"
+                style="@style/AcrossTheUniverse.TextView"
+                android:text="@{viewModel.weather.messageBody}"
+                app:layout_constraintStart_toStartOf="@+id/weatherType"
+                app:layout_constraintTop_toBottomOf="@+id/weatherType" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
 </layout>
