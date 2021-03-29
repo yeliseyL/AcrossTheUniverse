@@ -47,16 +47,37 @@
         <TextView
             android:id="@+id/roverName"
             style="@style/AcrossTheUniverse.TextView"
-            android:text="@{viewModel.mars.photos.get(0).rover.name}"
+            android:text="@{@string/rover_name(viewModel.mars.photos.get(0).rover.name)}"
             app:layout_constraintStart_toStartOf="@+id/image_Mars"
             app:layout_constraintTop_toBottomOf="@+id/image_Mars" />
 
         <TextView
+            android:id="@+id/roverLanding"
+            style="@style/AcrossTheUniverse.TextView"
+            android:text="@{@string/rover_landing_date(viewModel.mars.photos.get(0).rover.landing_date)}"
+            app:layout_constraintStart_toStartOf="@+id/image_Mars"
+            app:layout_constraintTop_toBottomOf="@+id/roverName" />
+
+        <TextView
+            android:id="@+id/roverLaunch"
+            style="@style/AcrossTheUniverse.TextView"
+            android:text="@{@string/rover_launch_date(viewModel.mars.photos.get(0).rover.launch_date)}"
+            app:layout_constraintStart_toStartOf="@+id/image_Mars"
+            app:layout_constraintTop_toBottomOf="@+id/roverLanding" />
+
+        <TextView
+            android:id="@+id/roverStatus"
+            style="@style/AcrossTheUniverse.TextView"
+            android:text="@{@string/rover_status(viewModel.mars.photos.get(0).rover.status)}"
+            app:layout_constraintStart_toStartOf="@+id/image_Mars"
+            app:layout_constraintTop_toBottomOf="@+id/roverLaunch" />
+
+        <TextView
             android:id="@+id/cameraName"
             style="@style/AcrossTheUniverse.TextView"
-            android:text="@{viewModel.mars.photos.get(0).camera.full_name}"
+            android:text="@{@string/camera_name(viewModel.mars.photos.get(0).camera.full_name)}"
             app:layout_constraintStart_toStartOf="@+id/roverName"
-            app:layout_constraintTop_toBottomOf="@+id/roverName" />
+            app:layout_constraintTop_toBottomOf="@+id/roverStatus" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
