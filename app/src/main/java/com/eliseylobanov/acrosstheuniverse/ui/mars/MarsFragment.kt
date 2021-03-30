@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.viewpager2.widget.ViewPager2
 import com.eliseylobanov.acrosstheuniverse.ApiStatus
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.databinding.FragmentMarsBinding
@@ -35,6 +36,27 @@ class MarsFragment : Fragment(R.layout.fragment_mars) {
             }
         })
 
+        setArrowButtonsVisibility()
         return binding.root
+    }
+
+    private fun setArrowButtonsVisibility() {
+        binding.marsViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                when (position) {
+                    0 -> {
+                        binding.leftArrow.visibility = View.GONE; binding.rightArrow.visibility = View.VISIBLE
+                    }
+                    viewModel.photos.value?.size?.minus(1) -> {
+                        binding.leftArrow.visibility = View.VISIBLE;
+                        binding.rightArrow.visibility = View.GONE
+                    }
+                    else -> {
+                        binding.leftArrow.visibility = View.VISIBLE; binding.rightArrow.visibility = View.VISIBLE
+                    }
+                }
+                super.onPageSelected(position)
+            }
+        })
     }
 }
