@@ -35,7 +35,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout"
                 style="@style/AcrossTheUniverse.AppTextField"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="@+id/wikiButton"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
