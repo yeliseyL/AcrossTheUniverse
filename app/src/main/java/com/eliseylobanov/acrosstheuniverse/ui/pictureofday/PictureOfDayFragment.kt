@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.eliseylobanov.acrosstheuniverse.ApiStatus
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.databinding.FragmentPictureOfDayBinding
 import com.google.android.material.chip.Chip
@@ -32,6 +33,15 @@ class PictureOfDayFragment : Fragment(R.layout.fragment_picture_of_day) {
         binding = FragmentPictureOfDayBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        viewModel.status.observe(viewLifecycleOwner, {
+            when (it) {
+                ApiStatus.LOADING -> binding.progress.visibility = View.VISIBLE
+                ApiStatus.DONE -> binding.progress.visibility = View.GONE
+                ApiStatus.ERROR -> View.GONE
+            }
+        })
+
         return binding.root
     }
 

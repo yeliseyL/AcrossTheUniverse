@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eliseylobanov.acrosstheuniverse.ApiStatus
 import com.eliseylobanov.acrosstheuniverse.BuildConfig
 import com.eliseylobanov.acrosstheuniverse.entities.Mars
 import com.eliseylobanov.acrosstheuniverse.entities.Photo
@@ -22,6 +23,10 @@ class MarsViewModel: ViewModel() {
     val mars: LiveData<Mars>
         get() = _mars
 
+    private val _status = MutableLiveData<ApiStatus>()
+    val status: LiveData<ApiStatus>
+        get() = _status
+
     init {
         getMars()
     }
@@ -29,12 +34,15 @@ class MarsViewModel: ViewModel() {
     private fun getMars() {
         viewModelScope.launch {
             try {
+                _status.value = ApiStatus.LOADING
                 val mars = NASAApi.retrofitEarthService.getMars(getYesterday(),
                         BuildConfig.API_KEY)
                 _mars.value = mars
                 _photos.value = mars.photos
+                _status.value = ApiStatus.DONE
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")
+                _status.value = ApiStatus.ERROR
             }
         }
     }
