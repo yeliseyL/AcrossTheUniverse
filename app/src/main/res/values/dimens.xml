@@ -4,4 +4,6 @@
     <dimen name="margin_vertical">8dp</dimen>
     <dimen name="imageView_height">320dp</dimen>
     <dimen name="corner_radius">8dp</dimen>
+    <dimen name="wiki_button_top_margin">26dp</dimen>
+    <dimen name="wiki_button_end_margin">10dp</dimen>
 </resources>
