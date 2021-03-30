@@ -28,17 +28,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/wiki_button_top_margin"
                 android:layout_marginEnd="@dimen/wiki_button_end_margin"
-                android:src="@drawable/ic_wikipedia"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:src="@drawable/ic_wikipedia"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout"
                 style="@style/AcrossTheUniverse.AppTextField"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                app:layout_constraintStart_toStartOf="@+id/wikiButton"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_width="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_edit_text"
