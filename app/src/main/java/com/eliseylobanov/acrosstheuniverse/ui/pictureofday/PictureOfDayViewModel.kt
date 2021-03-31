@@ -29,9 +29,10 @@ class PictureOfDayViewModel: ViewModel() {
 
     fun getTodayPictureOfDay() {
         viewModelScope.launch {
-            _status.value = ApiStatus.LOADING
             try {
-                _pictureOfDay.value = NASAApi.retrofitPictureService.getTodayPictureOfTheDay(BuildConfig.API_KEY)
+                _status.value = ApiStatus.LOADING
+                val picture = NASAApi.retrofitPictureService.getTodayPictureOfTheDay(BuildConfig.API_KEY)
+                _pictureOfDay.value = picture
                 _status.value = ApiStatus.DONE
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")
@@ -40,26 +41,13 @@ class PictureOfDayViewModel: ViewModel() {
         }
     }
 
-    fun getYesterdayPictureOfDay() {
+    fun getPictureOfDay(date: String) {
         viewModelScope.launch {
             try {
                 _status.value = ApiStatus.LOADING
-                _pictureOfDay.value = NASAApi.retrofitPictureService.getPictureOfTheDay(getYesterday(),
+                val picture = NASAApi.retrofitPictureService.getPictureOfTheDay(date,
                         BuildConfig.API_KEY)
-                _status.value = ApiStatus.DONE
-            } catch (ex: UnknownHostException) {
-                Log.e("PictureOfDay", "Network error")
-                _status.value = ApiStatus.ERROR
-            }
-        }
-    }
-
-    fun getDayBeforeYesterdayPictureOfDay() {
-        viewModelScope.launch {
-            try {
-                _status.value = ApiStatus.LOADING
-                _pictureOfDay.value = NASAApi.retrofitPictureService.getPictureOfTheDay(
-                        getDayBeforeYesterday(), BuildConfig.API_KEY)
+                _pictureOfDay.value = picture
                 _status.value = ApiStatus.DONE
             } catch (ex: UnknownHostException) {
                 Log.e("PictureOfDay", "Network error")

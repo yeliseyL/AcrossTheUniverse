@@ -5,12 +5,14 @@
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
+            android:id="@id/progress"
+            motion:visibilityMode="ignore"/>
+        <Constraint
             android:id="@+id/input_layout"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            app:layout_constraintWidth_percent="0.999"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            android:translationX="500dp" />
+            app:layout_constraintStart_toEndOf="parent" />
         <Constraint
             android:id="@+id/wikiButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,12 +26,14 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
+            android:id="@id/progress"
+            motion:visibilityMode="ignore"/>
+        <Constraint
             android:id="@+id/input_layout"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            app:layout_constraintWidth_percent="0.999"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:translationX="0dp"/>
+            app:layout_constraintStart_toStartOf="parent" />
         <Constraint
             android:id="@+id/wikiButton"
             app:layout_constraintStart_toStartOf="parent"
