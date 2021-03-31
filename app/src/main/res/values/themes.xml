@@ -16,14 +16,14 @@
         <item name="colorPrimary">@color/colorPrimaryMars</item>
         <item name="colorSecondary">@color/colorSecondaryMars</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkMars</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccentMars</item>
     </style>
 
     <style name="Theme.AcrossTheUniverse.Moon">
         <item name="colorPrimary">@color/colorPrimaryMoon</item>
         <item name="colorSecondary">@color/colorSecondaryMoon</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkMoon</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccentMoon</item>
     </style>
 
     <style name="Theme.AcrossTheUniverse.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
@@ -32,19 +32,19 @@
     </style>
 
     <style name="AcrossTheUniverse.TextView" parent="android:Widget.TextView">
+        <item name="android:textSize">@dimen/text_size</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/margin_vertical</item>
     </style>
 
     <style name="AcrossTheUniverse.TextView.Header">
+        <item name="android:textSize">@dimen/text_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="AcrossTheUniverse.AppTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/margin_vertical</item>
         <item name="android:hint">@string/search_wiki</item>
         <item name="counterEnabled">true</item>

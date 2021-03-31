@@ -9,6 +9,7 @@ import com.eliseylobanov.acrosstheuniverse.ApiStatus
 import com.eliseylobanov.acrosstheuniverse.BuildConfig
 import com.eliseylobanov.acrosstheuniverse.entities.Mars
 import com.eliseylobanov.acrosstheuniverse.entities.Photo
+import com.eliseylobanov.acrosstheuniverse.getDayBeforeYesterday
 import com.eliseylobanov.acrosstheuniverse.getYesterday
 import com.eliseylobanov.acrosstheuniverse.network.NASAApi
 import kotlinx.coroutines.launch
@@ -35,8 +36,12 @@ class MarsViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 _status.value = ApiStatus.LOADING
-                val mars = NASAApi.retrofitEarthService.getMars(getYesterday(),
+                var mars = NASAApi.retrofitEarthService.getMars(getYesterday(),
                         BuildConfig.API_KEY)
+                if (mars.photos.isEmpty()) {
+                    mars = NASAApi.retrofitEarthService.getMars(getDayBeforeYesterday(),
+                            BuildConfig.API_KEY)
+                }
                 _mars.value = mars
                 _photos.value = mars.photos
                 _status.value = ApiStatus.DONE

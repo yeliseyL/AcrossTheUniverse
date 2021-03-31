@@ -14,19 +14,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.motion.widget.MotionLayout
             android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingStart="@dimen/padding_main"
-            android:paddingEnd="@dimen/padding_main">
+            android:paddingEnd="@dimen/padding_main"
+            app:layoutDescription="@xml/fragment_picture_of_day_scene">
+
+            <ImageView
+                android:id="@+id/wikiButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/wiki_button_top_margin"
+                android:layout_marginEnd="@dimen/wiki_button_end_margin"
+                android:src="@drawable/ic_wikipedia"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout"
                 style="@style/AcrossTheUniverse.AppTextField"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_edit_text"
@@ -103,11 +111,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-
 
 </layout>
 

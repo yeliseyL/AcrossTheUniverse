@@ -9,6 +9,7 @@ fun getYesterday(): String {
     val dateFormat = SimpleDateFormat(Constants.API_QUERY_DATE_FORMAT, Locale.getDefault())
     return dateFormat.format(calendar.time)
 }
+
 fun getDayBeforeYesterday(): String {
     val calendar = Calendar.getInstance()
     calendar.add(Calendar.DATE, -2)

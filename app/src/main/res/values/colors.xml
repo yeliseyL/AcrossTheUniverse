@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#006A85</color>
     <color name="colorPrimaryDark">#002A57</color>
-    <color name="colorAccent">#D32F2F</color>
+    <color name="colorAccent">#29A588</color>
     <color name="color_gray">#66000000</color>
     <color name="color_white">#FFFFFF</color>
     <color name="colorSecondary">#29C2FF</color>
@@ -11,9 +11,11 @@
     <color name="colorPrimaryMars">#9C371F</color>
     <color name="colorPrimaryDarkMars">#F3510911</color>
     <color name="colorSecondaryMars">#CA5438</color>
+    <color name="colorAccentMars">#D32F2F</color>
 
     <color name="colorPrimaryMoon">#405365</color>
     <color name="colorPrimaryDarkMoon">#83090C10</color>
     <color name="colorSecondaryMoon">#797F85</color>
+    <color name="colorAccentMoon">#B3B3B3</color>
 
 </resources>
