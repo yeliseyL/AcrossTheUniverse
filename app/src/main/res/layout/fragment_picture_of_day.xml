@@ -85,8 +85,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
-
             <TextView
                 android:id="@+id/image_title"
                 style="@style/AcrossTheUniverse.TextView.Header"

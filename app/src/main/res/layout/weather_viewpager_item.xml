@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/weatherType"
-                style="@style/AcrossTheUniverse.TextView"
+                style="@style/AcrossTheUniverse.TextView.Header"
                 android:text="@{weather.messageType}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/weatherTime" />

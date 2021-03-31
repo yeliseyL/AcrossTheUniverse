@@ -6,7 +6,12 @@
     <ConstraintSet android:id="@+id/start">
         <Constraint
             android:id="@id/progress"
-            motion:visibilityMode="ignore"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:visibilityMode="ignore"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
         <Constraint
             android:id="@+id/input_layout"
             android:layout_height="wrap_content"
@@ -27,7 +32,12 @@
     <ConstraintSet android:id="@+id/end">
         <Constraint
             android:id="@id/progress"
-            motion:visibilityMode="ignore"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:visibilityMode="ignore"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
         <Constraint
             android:id="@+id/input_layout"
             android:layout_height="wrap_content"
