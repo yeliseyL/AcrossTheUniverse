@@ -4,8 +4,6 @@
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <ConstraintSet android:id="@+id/start">
-        <Constraint android:id="@+id/wikiButton"
-            android:alpha="1" />
         <Constraint
             android:id="@+id/input_layout"
             android:layout_height="wrap_content"
@@ -34,7 +32,7 @@
             android:translationX="0dp"/>
         <Constraint
             android:id="@+id/wikiButton"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -48,6 +46,20 @@
         app:constraintSetStart="@+id/start"
         motion:duration="1000">
 
-        <OnClick motion:targetId="@id/wikiButton" />
+        <OnSwipe
+            motion:touchAnchorId="@+id/wikiButton"
+            motion:touchAnchorSide="left"
+            motion:dragDirection="dragLeft" />
+    </Transition>
+
+    <Transition
+        app:constraintSetEnd="@id/start"
+        app:constraintSetStart="@+id/end"
+        motion:duration="1000">
+
+        <OnSwipe
+            motion:touchAnchorId="@+id/wikiButton"
+            motion:touchAnchorSide="right"
+            motion:dragDirection="dragRight" />
     </Transition>
 </MotionScene>
