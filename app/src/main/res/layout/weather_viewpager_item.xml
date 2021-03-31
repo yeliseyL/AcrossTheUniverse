@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="weather"
+            name="item"
             type="com.eliseylobanov.acrosstheuniverse.entities.WeatherItem" />
     </data>
 
@@ -21,7 +21,7 @@
             <TextView
                 android:id="@+id/weatherTime"
                 style="@style/AcrossTheUniverse.TextView.Header"
-                android:text="@{weather.messageIssueTime}"
+                android:text="@{item.messageIssueTime}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -29,14 +29,14 @@
             <TextView
                 android:id="@+id/weatherType"
                 style="@style/AcrossTheUniverse.TextView.Header"
-                android:text="@{weather.messageType}"
+                android:text="@{item.messageType}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/weatherTime" />
 
             <TextView
                 android:id="@+id/weatherBody"
                 style="@style/AcrossTheUniverse.TextView"
-                android:text="@{weather.messageBody}"
+                android:text="@{item.messageBody}"
                 app:layout_constraintStart_toStartOf="@+id/weatherType"
                 app:layout_constraintTop_toBottomOf="@+id/weatherType" />
 

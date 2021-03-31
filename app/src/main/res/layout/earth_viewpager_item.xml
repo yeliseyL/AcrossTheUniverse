@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="earth"
+            name="item"
             type="com.eliseylobanov.acrosstheuniverse.entities.Earth" />
     </data>
 
@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/earthDate"
             style="@style/AcrossTheUniverse.TextView.Header"
-            android:text="@{earth.date}"
+            android:text="@{item.date}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/photo_of_the_day_stub"
-                app:earthImageUrl="@{earth}"
+                app:earthImageUrl="@{item}"
                 android:scaleType="centerCrop"
                 app:layout_constraintTop_toBottomOf="@+id/earthDate" />
 
@@ -45,7 +45,7 @@
         <TextView
             android:id="@+id/earthCaption"
             style="@style/AcrossTheUniverse.TextView"
-            android:text="@{earth.caption}"
+            android:text="@{item.caption}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_Earth" />
