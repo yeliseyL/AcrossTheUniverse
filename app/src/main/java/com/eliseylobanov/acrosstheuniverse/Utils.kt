@@ -1,8 +1,5 @@
 package com.eliseylobanov.acrosstheuniverse
 
-import android.view.View
-import androidx.databinding.ViewDataBinding
-import androidx.viewpager2.widget.ViewPager2
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -2,10 +2,7 @@ package com.eliseylobanov.acrosstheuniverse.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commit
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.eliseylobanov.acrosstheuniverse.R
