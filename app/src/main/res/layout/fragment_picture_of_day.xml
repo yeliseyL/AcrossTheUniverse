@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.motion.widget.MotionLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -22,19 +22,12 @@
             android:paddingEnd="@dimen/padding_main"
             app:layoutDescription="@xml/fragment_picture_of_day_scene">
 
-            <ImageView
-                android:id="@+id/wikiButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/wiki_button_top_margin"
-                android:layout_marginEnd="@dimen/wiki_button_end_margin"
-                android:src="@drawable/ic_wikipedia"/>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout"
                 style="@style/AcrossTheUniverse.AppTextField"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_edit_text"
@@ -66,24 +59,15 @@
                     android:text="@string/today" />
             </com.google.android.material.chip.ChipGroup>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/image_view"
+            <ImageView
+                android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/imageView_height"
-                app:cardCornerRadius="@dimen/corner_radius"
+                android:contentDescription="@string/photo_of_the_day_stub"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chipGroup">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/photo_of_the_day_stub"
-                    android:scaleType="centerCrop"
-                    app:imageUrl="@{viewModel.pictureOfDay.mediaType.equals(`image`) ? viewModel.pictureOfDay.url : null}" />
-
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@+id/chipGroup"
+                app:imageUrl="@{viewModel.pictureOfDay.mediaType.equals(`image`) ? viewModel.pictureOfDay.url : null}" />
 
             <TextView
                 android:id="@+id/image_title"
@@ -91,7 +75,7 @@
                 android:text="@{viewModel.pictureOfDay.title}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_view" />
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
             <TextView
                 android:id="@+id/image_description"
@@ -111,7 +95,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-        </androidx.constraintlayout.motion.widget.MotionLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
