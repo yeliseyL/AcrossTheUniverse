@@ -15,6 +15,7 @@
             android:background="?colorPrimaryDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:titleTextColor="@color/color_white"
             app:layout_scrollFlags="scroll|enterAlways"/>
 
     </com.google.android.material.appbar.AppBarLayout>
