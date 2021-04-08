@@ -53,16 +53,6 @@ class NoteDetailsViewModel(application: Application, var note: Note?) : ViewMode
         }
     }
 
-    fun deleteNote() {
-        viewModelScope.launch {
-            try {
-                note?.let { notesRepository.delete(it.noteId) }
-            } catch (th: Throwable) {
-                Log.e("PictureOfDay", "Network error")
-            }
-        }
-    }
-
     class Factory(val app: Application, val note: Note?) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(NoteDetailsViewModel::class.java)) {

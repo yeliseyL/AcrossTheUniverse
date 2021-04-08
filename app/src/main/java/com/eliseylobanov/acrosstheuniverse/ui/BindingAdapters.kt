@@ -59,7 +59,7 @@ fun bindWeatherViewPager(viewPager: ViewPager2, data: List<WeatherItem>?) {
 }
 
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<Note>?) {
+fun bindRecyclerView(recyclerView: RecyclerView, data: MutableList<Note>?) {
     val adapter = recyclerView.adapter as NotesAdapter
     adapter.submitList(data)
 }

@@ -1,10 +1,13 @@
 package com.eliseylobanov.acrosstheuniverse.ui.notes
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.eliseylobanov.acrosstheuniverse.database.getDatabase
 import com.eliseylobanov.acrosstheuniverse.entities.Note
+import com.eliseylobanov.acrosstheuniverse.entities.toDatabaseNote
 import com.eliseylobanov.acrosstheuniverse.repository.NotesRepository
+import kotlinx.coroutines.launch
 
 class NotesViewModel(application: Application) : AndroidViewModel(application) {
     private val _navigateToSelectedNote = MutableLiveData<Note?>()
@@ -22,6 +25,24 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
     fun displayNoteComplete() {
         _navigateToSelectedNote.value = null
+    }
+
+    fun deleteNote(note: Note) {
+        viewModelScope.launch {
+            try { notesRepository.delete(note.toDatabaseNote)
+            } catch (th: Throwable) {
+                Log.e("PictureOfDay", "Network error")
+            }
+        }
+    }
+
+    fun updateNotes(notes: List<Note>) {
+        viewModelScope.launch {
+            try { notesRepository.updateAll(notes)
+            } catch (th: Throwable) {
+                Log.e("PictureOfDay", "Network error")
+            }
+        }
     }
 
     class Factory(val app: Application) : ViewModelProvider.Factory {

@@ -9,7 +9,7 @@ class Note(
     var noteId: Long = 0L,
     var titleText: String = "",
     var noteText: String = "",
-    var noteDate: String = "",
+    var noteDate: String = ""
 ) : Parcelable
 
 internal val Note.toDatabaseNote: DatabaseNote

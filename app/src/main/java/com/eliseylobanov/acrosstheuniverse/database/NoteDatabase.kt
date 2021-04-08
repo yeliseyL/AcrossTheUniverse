@@ -3,26 +3,30 @@ package com.eliseylobanov.acrosstheuniverse.database
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import retrofit2.http.DELETE
 
 @Dao
 interface NoteDao {
     @Query("SELECT * from notes_table WHERE noteId = :key")
     suspend fun get(key: Long): DatabaseNote?
 
-    @Query("DELETE FROM notes_table WHERE noteId = :key")
-    suspend fun delete(key: Long)
+    @Delete
+    suspend fun delete(note: DatabaseNote)
 
     @Query("DELETE FROM notes_table")
     suspend fun clear()
 
     @Query("SELECT * FROM notes_table ORDER BY noteId DESC")
-    fun getAllNotes(): LiveData<List<DatabaseNote>>
+    fun getAllNotes(): LiveData<MutableList<DatabaseNote>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(note: DatabaseNote)
 
     @Update
     suspend fun update(note: DatabaseNote)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertAll(asteroids: List<DatabaseNote>)
 }
 
 @Database(entities = [DatabaseNote::class], version = 1)

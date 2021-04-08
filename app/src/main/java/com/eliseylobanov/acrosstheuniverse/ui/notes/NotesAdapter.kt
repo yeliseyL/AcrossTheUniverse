@@ -1,21 +1,35 @@
 package com.eliseylobanov.acrosstheuniverse.ui.notes
 
+import android.app.Application
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.eliseylobanov.acrosstheuniverse.database.getDatabase
 import com.eliseylobanov.acrosstheuniverse.databinding.ItemNoteBinding
 import com.eliseylobanov.acrosstheuniverse.entities.Note
+import com.eliseylobanov.acrosstheuniverse.repository.NotesRepository
 
-class NotesAdapter(private val onClickListener: OnClickListener) :
-    ListAdapter<Note, NotesAdapter.NotesViewHolder>(DiffCallback) {
+class NotesAdapter(private val onClickListener: OnClickListener, private val viewModel: NotesViewModel) :
+    ListAdapter<Note, NotesAdapter.NotesViewHolder>(DiffCallback), ItemTouchHelperAdapter {
+
+    private val newList = arrayListOf<Note>()
 
     class NotesViewHolder(private var binding: ItemNoteBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root), ItemTouchHelperViewHolder {
         fun bind(note: Note) {
             binding.note = note
             binding.executePendingBindings()
+        }
+
+        override fun onItemSelected() {
+            binding.noteView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        override fun onItemClear() {
+            binding.noteView.setBackgroundColor(0)
         }
     }
 
@@ -45,4 +59,30 @@ class NotesAdapter(private val onClickListener: OnClickListener) :
     class OnClickListener(val clickListener: (note: Note) -> Unit) {
         fun onClick(note: Note) = clickListener(note)
     }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        newList.addAll(currentList)
+        newList.removeAt(fromPosition).apply {
+            newList.add(if (toPosition > fromPosition) toPosition - 1 else toPosition, this)
+        }
+        viewModel.updateNotes(newList)
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemDismiss(position: Int) {
+        viewModel.deleteNote(currentList[position])
+    }
+}
+
+interface ItemTouchHelperAdapter {
+    fun onItemMove(fromPosition: Int, toPosition: Int)
+
+    fun onItemDismiss(position: Int)
+}
+
+interface ItemTouchHelperViewHolder {
+
+    fun onItemSelected()
+
+    fun onItemClear()
 }

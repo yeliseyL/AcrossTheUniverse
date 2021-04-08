@@ -18,5 +18,5 @@ internal val DatabaseNote.toNote: Note
         this.noteId,
         this.titleText,
         this.noteText,
-        this.noteDate,
+        this.noteDate
     )

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.databinding.NotesFragmentBinding
 
@@ -31,9 +32,11 @@ class NotesFragment : Fragment(R.layout.notes_fragment) {
 
         adapter = NotesAdapter(NotesAdapter.OnClickListener {
             viewModel.displayNote(it)
-        })
+        }, viewModel)
 
         binding.recyclerNotes.adapter = adapter
+
+        ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(binding.recyclerNotes)
 
         viewModel.navigateToSelectedNote.observe(viewLifecycleOwner, {
             if (null != it) {
