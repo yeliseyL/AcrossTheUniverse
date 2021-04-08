@@ -2,8 +2,13 @@ package com.eliseylobanov.acrosstheuniverse.ui
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.eliseylobanov.acrosstheuniverse.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -17,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         setNewTheme()
         setContentView(R.layout.activity_main)
         setUpNavigation()
-        setSupportActionBar(toolbar)
     }
 
     private fun setNewTheme() {
@@ -27,9 +31,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpNavigation() {
+        setSupportActionBar(toolbar)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
         val navController = findNavController(R.id.nav_host_fragment)
         bottomNavigationView.setupWithNavController(navController)
+
+        val appBarConfiguration = AppBarConfiguration(navController.graph, null)
+        setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             title = when (destination.id) {
@@ -41,5 +49,15 @@ class MainActivity : AppCompatActivity() {
                 else -> "Across The Universe"
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 }

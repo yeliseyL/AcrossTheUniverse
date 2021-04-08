@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.databinding.NotesFragmentBinding
 
-class NotesFragment : Fragment() {
+class NotesFragment : Fragment(R.layout.notes_fragment) {
 
     private val viewModel: NotesViewModel by lazy {
         val activity = requireNotNull(this.activity)
@@ -38,10 +38,15 @@ class NotesFragment : Fragment() {
         viewModel.navigateToSelectedNote.observe(viewLifecycleOwner, {
             if (null != it) {
                 this.findNavController()
-                    .navigate(RandomFragmentDirections.actionRandomFragmentToDetailsFragment(it))
+                    .navigate(NotesFragmentDirections.actionNotesFragmentToNoteDetailsFragment(it))
                 viewModel.displayNoteComplete()
             }
         })
+
+        binding.fab.setOnClickListener {
+            findNavController()
+                .navigate(NotesFragmentDirections.actionNotesFragmentToNoteDetailsFragment(null))
+        }
 
         return binding.root
     }

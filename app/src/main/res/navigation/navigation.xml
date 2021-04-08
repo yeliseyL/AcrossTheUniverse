@@ -23,4 +23,21 @@
         android:id="@+id/weatherFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.weather.WeatherFragment"
         android:label="WeatherFragment" />
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.eliseylobanov.acrosstheuniverse.ui.notes.NotesFragment"
+        android:label="NotesFragment" >
+        <action
+            android:id="@+id/action_notesFragment_to_noteDetailsFragment"
+            app:destination="@id/noteDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteDetailsFragment"
+        android:name="com.eliseylobanov.acrosstheuniverse.ui.notes.NoteDetailsFragment"
+        android:label="NoteDetailsFragment" >
+        <argument
+            android:name="note"
+            app:argType="com.eliseylobanov.acrosstheuniverse.entities.Note"
+            app:nullable="true" />
+    </fragment>
 </navigation>

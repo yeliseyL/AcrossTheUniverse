@@ -9,4 +9,5 @@
     <dimen name="wiki_button_end_margin">18dp</dimen>
     <dimen name="text_size">16sp</dimen>
     <dimen name="margin_fab">18dp</dimen>
+    <dimen name="margin_note">8dp</dimen>
 </resources>
