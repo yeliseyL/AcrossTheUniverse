@@ -20,4 +20,5 @@
     <string name="rover_launch_date">Launch date: %1$s</string>
     <string name="rover_status">Status: %1$s</string>
     <string name="camera_name">Camera name: %1$s</string>
+    <string name="cardView_sample_text">Note text</string>
 </resources>

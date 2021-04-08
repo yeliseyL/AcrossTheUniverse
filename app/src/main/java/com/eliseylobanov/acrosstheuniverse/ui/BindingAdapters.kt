@@ -3,12 +3,15 @@ package com.eliseylobanov.acrosstheuniverse
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.eliseylobanov.acrosstheuniverse.entities.Earth
+import com.eliseylobanov.acrosstheuniverse.entities.Note
 import com.eliseylobanov.acrosstheuniverse.entities.Photo
 import com.eliseylobanov.acrosstheuniverse.entities.WeatherItem
 import com.eliseylobanov.acrosstheuniverse.ui.earth.EarthViewPagerAdapter
 import com.eliseylobanov.acrosstheuniverse.ui.mars.MarsViewPagerAdapter
+import com.eliseylobanov.acrosstheuniverse.ui.notes.NotesAdapter
 import com.eliseylobanov.acrosstheuniverse.ui.weather.WeatherViewPagerAdapter
 import com.squareup.picasso.Picasso
 
@@ -52,5 +55,11 @@ fun bindEarthViewPager(viewPager: ViewPager2, data: List<Earth>?) {
 @BindingAdapter("listData")
 fun bindWeatherViewPager(viewPager: ViewPager2, data: List<WeatherItem>?) {
     val adapter = viewPager.adapter as WeatherViewPagerAdapter
+    adapter.submitList(data)
+}
+
+@BindingAdapter("listData")
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<Note>?) {
+    val adapter = recyclerView.adapter as NotesAdapter
     adapter.submitList(data)
 }
