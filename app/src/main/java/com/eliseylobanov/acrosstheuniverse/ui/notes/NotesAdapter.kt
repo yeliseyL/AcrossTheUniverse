@@ -1,16 +1,13 @@
 package com.eliseylobanov.acrosstheuniverse.ui.notes
 
-import android.app.Application
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.eliseylobanov.acrosstheuniverse.database.getDatabase
 import com.eliseylobanov.acrosstheuniverse.databinding.ItemNoteBinding
 import com.eliseylobanov.acrosstheuniverse.entities.Note
-import com.eliseylobanov.acrosstheuniverse.repository.NotesRepository
 
 class NotesAdapter(private val onClickListener: OnClickListener, private val viewModel: NotesViewModel) :
     ListAdapter<Note, NotesAdapter.NotesViewHolder>(DiffCallback), ItemTouchHelperAdapter {
