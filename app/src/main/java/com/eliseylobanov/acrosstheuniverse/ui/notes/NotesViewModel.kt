@@ -36,15 +36,6 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun updateNotes(notes: List<Note>) {
-        viewModelScope.launch {
-            try { notesRepository.updateAll(notes)
-            } catch (th: Throwable) {
-                Log.e("PictureOfDay", "Network error")
-            }
-        }
-    }
-
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(NotesViewModel::class.java)) {

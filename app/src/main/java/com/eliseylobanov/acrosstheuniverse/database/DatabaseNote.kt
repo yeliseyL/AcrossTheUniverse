@@ -7,7 +7,7 @@ import com.eliseylobanov.acrosstheuniverse.entities.Note
 @Entity(tableName = "notes_table")
 class DatabaseNote {
     @PrimaryKey(autoGenerate = true)
-    var noteId: Long = 0L
+    var noteId: Int = 0
     var noteDate: String = ""
     var titleText: String = ""
     var noteText: String = ""

@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 class Note(
-    var noteId: Long = 0L,
+    var noteId: Int = 0,
     var titleText: String = "",
     var noteText: String = "",
     var noteDate: String = ""
@@ -15,7 +15,7 @@ class Note(
 internal val Note.toDatabaseNote: DatabaseNote
     get() {
         val noteEntity = DatabaseNote()
-        if (this.noteId != 0L) {
+        if (this.noteId != 0) {
             noteEntity.noteId = this.noteId
         }
         noteEntity.noteDate = this.noteDate

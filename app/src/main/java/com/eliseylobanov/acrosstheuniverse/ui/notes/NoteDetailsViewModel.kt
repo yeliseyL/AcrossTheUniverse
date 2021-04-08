@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class NoteDetailsViewModel(application: Application, var note: Note?) : ViewModel() {
 
-    var noteId: Long = 0
+    var noteId: Int = 0
     var noteDate = ""
     var titleText = ""
     var noteText = ""

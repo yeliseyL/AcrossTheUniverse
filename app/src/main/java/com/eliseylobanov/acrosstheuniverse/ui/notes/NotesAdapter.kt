@@ -25,11 +25,11 @@ class NotesAdapter(private val onClickListener: OnClickListener, private val vie
         }
 
         override fun onItemSelected() {
-            binding.noteView.setBackgroundColor(Color.LTGRAY)
+            binding.noteView.setCardBackgroundColor(Color.LTGRAY)
         }
 
         override fun onItemClear() {
-            binding.noteView.setBackgroundColor(0)
+            binding.noteView.setCardBackgroundColor(0)
         }
     }
 
@@ -61,16 +61,17 @@ class NotesAdapter(private val onClickListener: OnClickListener, private val vie
     }
 
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        newList.clear()
         newList.addAll(currentList)
         newList.removeAt(fromPosition).apply {
             newList.add(if (toPosition > fromPosition) toPosition - 1 else toPosition, this)
         }
-        viewModel.updateNotes(newList)
         notifyItemMoved(fromPosition, toPosition)
     }
 
     override fun onItemDismiss(position: Int) {
         viewModel.deleteNote(currentList[position])
+        notifyItemRemoved(position)
     }
 }
 

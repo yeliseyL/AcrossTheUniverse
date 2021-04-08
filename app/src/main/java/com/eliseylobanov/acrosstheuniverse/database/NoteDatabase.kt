@@ -25,8 +25,8 @@ interface NoteDao {
     @Update
     suspend fun update(note: DatabaseNote)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertAll(asteroids: List<DatabaseNote>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(notes: List<DatabaseNote>)
 }
 
 @Database(entities = [DatabaseNote::class], version = 1)
