@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.eliseylobanov.acrosstheuniverse.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,6 +15,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 const val DEFAULT_THEME = R.style.Theme_AcrossTheUniverse
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var appBarConfiguration : AppBarConfiguration
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setNewTheme()
@@ -33,10 +35,10 @@ class MainActivity : AppCompatActivity() {
     private fun setUpNavigation() {
         setSupportActionBar(toolbar)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
-        val navController = findNavController(R.id.nav_host_fragment)
+        navController = findNavController(R.id.nav_host_fragment)
         bottomNavigationView.setupWithNavController(navController)
 
-        val appBarConfiguration = AppBarConfiguration(navController.graph, null)
+        appBarConfiguration = AppBarConfiguration(navController.graph, null)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener{ _, destination, _ ->
@@ -57,7 +59,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
     }
 }

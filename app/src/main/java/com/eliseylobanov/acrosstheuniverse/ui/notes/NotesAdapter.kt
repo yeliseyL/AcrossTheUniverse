@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eliseylobanov.acrosstheuniverse.databinding.ItemNoteBinding
 import com.eliseylobanov.acrosstheuniverse.entities.Note
 
-class NotesAdapter(val onClickListener: OnClickListener) :
+class NotesAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<Note, NotesAdapter.NotesViewHolder>(DiffCallback) {
 
     class NotesViewHolder(private var binding: ItemNoteBinding) :
@@ -31,15 +31,15 @@ class NotesAdapter(val onClickListener: OnClickListener) :
 
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): NotesViewHolder {
-        return NotesViewHolder(ItemNoteBinding.inflate(LayoutInflater.from(parent.context)))
+        return NotesViewHolder(ItemNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        val asteroid = getItem(position)
+        val note = getItem(position)
         holder.itemView.setOnClickListener {
-            onClickListener.onClick(asteroid)
+            onClickListener.onClick(note)
         }
-        holder.bind(asteroid)
+        holder.bind(note)
     }
 
     class OnClickListener(val clickListener: (note: Note) -> Unit) {

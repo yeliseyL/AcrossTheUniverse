@@ -15,6 +15,7 @@
     <style name="Theme.AcrossTheUniverse.Mars">
         <item name="colorPrimary">@color/colorPrimaryMars</item>
         <item name="colorSecondary">@color/colorSecondaryMars</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariantMars</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkMars</item>
         <item name="colorAccent">@color/colorAccentMars</item>
     </style>
@@ -22,6 +23,7 @@
     <style name="Theme.AcrossTheUniverse.Moon">
         <item name="colorPrimary">@color/colorPrimaryMoon</item>
         <item name="colorSecondary">@color/colorSecondaryMoon</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariantMoon</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkMoon</item>
         <item name="colorAccent">@color/colorAccentMoon</item>
     </style>
