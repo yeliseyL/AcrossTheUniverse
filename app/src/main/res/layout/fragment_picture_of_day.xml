@@ -9,6 +9,12 @@
             type="com.eliseylobanov.acrosstheuniverse.ui.pictureofday.PictureOfDayViewModel" />
     </data>
 
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="header"-->
+<!--            type="com.eliseylobanov.acrosstheuniverse.ui.pictureofday.PictureOfDayViewModel" />-->
+<!--    </data>-->
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -72,7 +78,7 @@
             <TextView
                 android:id="@+id/image_title"
                 style="@style/AcrossTheUniverse.TextView.Header"
-                android:text="@{viewModel.pictureOfDay.title}"
+                app:spannedHeader="@{viewModel.pictureOfDay.title}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image" />
