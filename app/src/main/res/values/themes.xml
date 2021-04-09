@@ -10,6 +10,7 @@
         <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorOnSecondary">@color/color_white</item>
         <item name="android:statusBarColor">?colorPrimaryDark</item>
+        <item name="android:fontFamily">@font/main_font</item>
     </style>
 
     <style name="Theme.AcrossTheUniverse.Mars">
