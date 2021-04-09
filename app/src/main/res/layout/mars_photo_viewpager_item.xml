@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/marsDate"
             style="@style/AcrossTheUniverse.TextView.Header"
-            android:text="@{item.earth_date}"
+            app:spannedHeader="@{item.earth_date}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

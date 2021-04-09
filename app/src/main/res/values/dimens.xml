@@ -10,4 +10,5 @@
     <dimen name="text_size">16sp</dimen>
     <dimen name="margin_fab">18dp</dimen>
     <dimen name="margin_note">8dp</dimen>
+    <dimen name="settings_title_margin">32dp</dimen>
 </resources>
