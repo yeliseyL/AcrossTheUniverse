@@ -6,27 +6,27 @@
     <fragment
         android:id="@+id/earthFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.earth.EarthFragment"
-        android:label="EarthFragment" />
+        android:label="Earth" />
     <fragment
         android:id="@+id/marsFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.mars.MarsFragment"
-        android:label="MarsFragment" />
+        android:label="Mars" />
     <fragment
         android:id="@+id/pictureOfDayFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.pictureofday.PictureOfDayFragment"
-        android:label="PictureOfDayFragment" />
+        android:label="Pictures" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="@string/settings" />
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.weather.WeatherFragment"
-        android:label="WeatherFragment" />
+        android:label="@string/weather" />
     <fragment
         android:id="@+id/notesFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.notes.NotesFragment"
-        android:label="NotesFragment" >
+        android:label="@string/Notes">
         <action
             android:id="@+id/action_notesFragment_to_noteDetailsFragment"
             app:destination="@id/noteDetailsFragment"
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/noteDetailsFragment"
         android:name="com.eliseylobanov.acrosstheuniverse.ui.notes.NoteDetailsFragment"
-        android:label="NoteDetailsFragment" >
+        android:label="Edit Note">
         <argument
             android:name="note"
             app:argType="com.eliseylobanov.acrosstheuniverse.entities.Note"

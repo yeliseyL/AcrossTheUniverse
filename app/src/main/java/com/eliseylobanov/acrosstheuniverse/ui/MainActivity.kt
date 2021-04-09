@@ -40,17 +40,6 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph, null)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        navController.addOnDestinationChangedListener{ _, destination, _ ->
-            title = when (destination.id) {
-                R.id.earthFragment -> "Across The Universe - Earth"
-                R.id.marsFragment -> "Across The Universe - Mars"
-                R.id.settingsFragment -> "Across The Universe - Settings"
-                R.id.weatherFragment -> "Across The Universe - Weather"
-                R.id.pictureOfDayFragment -> "Across The Universe - Pictures"
-                else -> "Across The Universe"
-            }
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
