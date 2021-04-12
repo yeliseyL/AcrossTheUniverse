@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#006A85</color>
-    <color name="colorPrimaryDark">#002A57</color>
+    <color name="colorPrimaryDark">#003f58</color>
     <color name="colorAccent">#29A588</color>
     <color name="color_gray">#66000000</color>
     <color name="color_white">#FFFFFF</color>
-    <color name="colorSecondary">#29C2FF</color>
+    <color name="colorSecondary">#4a98b5</color>
     <color name="colorSecondaryVariant">#7029C2FF</color>
 
     <color name="colorPrimaryMars">#9C371F</color>
-    <color name="colorPrimaryDarkMars">#F3510911</color>
-    <color name="colorSecondaryMars">#CA5438</color>
+    <color name="colorPrimaryDarkMars">#680100</color>
+    <color name="colorSecondaryMars">#d26548</color>
     <color name="colorSecondaryVariantMars">#70CA5438</color>
     <color name="colorAccentMars">#D32F2F</color>
 
     <color name="colorPrimaryMoon">#405365</color>
-    <color name="colorPrimaryDarkMoon">#83090C10</color>
-    <color name="colorSecondaryMoon">#797F85</color>
+    <color name="colorPrimaryDarkMoon">#172b3b</color>
+    <color name="colorSecondaryMoon">#6c7f93</color>
     <color name="colorSecondaryVariantMoon">#70797F85</color>
     <color name="colorAccentMoon">#B3B3B3</color>
 
