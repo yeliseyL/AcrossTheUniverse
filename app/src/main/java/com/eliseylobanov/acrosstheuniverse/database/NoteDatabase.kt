@@ -3,6 +3,17 @@ package com.eliseylobanov.acrosstheuniverse.database
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.eliseylobanov.acrosstheuniverse.entities.Note
+import com.eliseylobanov.acrosstheuniverse.entities.toDatabaseNote
+import com.eliseylobanov.acrosstheuniverse.getToday
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+val PREPOPULATE_DATA = Note(0, "Your first note",
+    "Note text", getToday()).toDatabaseNote
 
 @Dao
 interface NoteDao {
@@ -40,8 +51,18 @@ fun getDatabase(context: Context): NoteDatabase {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(context.applicationContext,
                 NoteDatabase::class.java,
-                "notes").build()
+                "notes")
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        GlobalScope.launch {
+                            getDatabase(context).noteDao.insert(PREPOPULATE_DATA)
+                        }
+                    }
+                })
+                .build()
         }
     }
     return INSTANCE
 }
+

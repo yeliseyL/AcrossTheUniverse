@@ -2,10 +2,9 @@ package com.eliseylobanov.acrosstheuniverse.ui.splash
 
 import android.animation.Animator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.view.animation.LinearInterpolator
+import androidx.appcompat.app.AppCompatActivity
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_splash.*
