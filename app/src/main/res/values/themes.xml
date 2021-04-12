@@ -11,6 +11,7 @@
         <item name="colorOnSecondary">@color/color_white</item>
         <item name="android:statusBarColor">?colorPrimaryDark</item>
         <item name="android:fontFamily">@font/main_font</item>
+        <item name="android:textColorSecondary">@color/color_white</item>
     </style>
 
     <style name="Theme.AcrossTheUniverse.Mars">
