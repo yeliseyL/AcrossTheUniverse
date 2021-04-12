@@ -72,12 +72,6 @@ class PictureOfDayFragment : Fragment(R.layout.fragment_picture_of_day) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.inputLayout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
-            })
-        }
-
         binding.chipGroup.setOnCheckedChangeListener { chipGroup, position ->
             chipGroup.findViewById<Chip>(position)?.let {
                 when (it) {
