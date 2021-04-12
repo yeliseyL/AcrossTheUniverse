@@ -7,10 +7,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.eliseylobanov.acrosstheuniverse.entities.Note
 import com.eliseylobanov.acrosstheuniverse.entities.toDatabaseNote
 import com.eliseylobanov.acrosstheuniverse.getToday
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 val PREPOPULATE_DATA = Note(0, "Your first note",
     "Note text", getToday()).toDatabaseNote

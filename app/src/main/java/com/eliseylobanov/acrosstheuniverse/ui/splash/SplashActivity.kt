@@ -3,7 +3,7 @@ package com.eliseylobanov.acrosstheuniverse.ui.splash
 import android.animation.Animator
 import android.content.Intent
 import android.os.Bundle
-import android.view.animation.LinearInterpolator
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.eliseylobanov.acrosstheuniverse.R
 import com.eliseylobanov.acrosstheuniverse.ui.MainActivity
@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
         super.onCreate(savedInstanceState)
 
         splashImage.animate().rotationBy(ROTATION_TIME)
-            .setInterpolator(LinearInterpolator()).setDuration(SPLASH_TIME)
+            .setInterpolator(AccelerateDecelerateInterpolator()).setDuration(SPLASH_TIME)
             .setListener(object : Animator.AnimatorListener {
 
                 override fun onAnimationEnd(animation: Animator?) {
