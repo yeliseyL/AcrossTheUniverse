@@ -11,6 +11,7 @@
         <item name="colorOnSecondary">@color/color_white</item>
         <item name="android:statusBarColor">?colorPrimaryDark</item>
         <item name="android:fontFamily">@font/main_font</item>
+        <item name="android:textColorSecondary">@color/color_white</item>
     </style>
 
     <style name="Theme.AcrossTheUniverse.Mars">
@@ -29,7 +30,8 @@
         <item name="colorAccent">@color/colorAccentMoon</item>
     </style>
 
-    <style name="Theme.AcrossTheUniverse.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+    <style name="Theme.AcrossTheUniverse.BottomNavigationView"
+        parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="colorPrimary">?colorPrimary</item>
         <item name="colorOnPrimary">?colorOnPrimary</item>
     </style>
@@ -47,7 +49,8 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="AcrossTheUniverse.AppTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="AcrossTheUniverse.AppTextField"
+        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_marginTop">@dimen/margin_vertical</item>
         <item name="android:hint">@string/search_wiki</item>
         <item name="counterEnabled">true</item>
