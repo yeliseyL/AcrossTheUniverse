@@ -34,7 +34,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 R.id.moonRadioButton -> changeThemeTo(R.style.Theme_AcrossTheUniverse_Moon,
                         R.color.colorPrimaryDarkMoon)
             }
-            view.findNavController().navigate(R.id.action_settingsFragment_to_photoOfDayFragment)
+            view.findNavController().navigateUp()
         }
     }
 
@@ -47,5 +47,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             putInt(getString(R.string.saved_color), colorId)
             apply()
         }
+        requireActivity().recreate()
     }
 }

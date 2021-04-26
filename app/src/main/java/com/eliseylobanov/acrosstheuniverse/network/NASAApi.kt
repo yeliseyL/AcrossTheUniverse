@@ -4,8 +4,8 @@ import com.eliseylobanov.acrosstheuniverse.Constants.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import java.util.concurrent.TimeUnit
 
 object NASAApi {
     private val moshi = Moshi.Builder()
@@ -17,5 +17,11 @@ object NASAApi {
         .baseUrl(BASE_URL)
         .build()
 
+    private val retrofitEarth = Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl(BASE_URL)
+        .build()
+
     val retrofitPictureService: NASAApiPictureService = retrofitPicture.create(NASAApiPictureService::class.java)
+    val retrofitEarthService: NASAApiPictureService = retrofitEarth.create(NASAApiPictureService::class.java)
 }
