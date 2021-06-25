@@ -9,10 +9,11 @@ import com.eliseylobanov.acrosstheuniverse.ApiStatus
 import com.eliseylobanov.acrosstheuniverse.BuildConfig
 import com.eliseylobanov.acrosstheuniverse.entities.PictureOfDay
 import com.eliseylobanov.acrosstheuniverse.network.NASAApi
+import com.eliseylobanov.acrosstheuniverse.repository.FakePictureRepository
 import kotlinx.coroutines.launch
 import java.net.UnknownHostException
 
-class PictureOfDayViewModel: ViewModel() {
+class PictureOfDayViewModel(private val repository: FakePictureRepository): ViewModel() {
     private val _pictureOfDay = MutableLiveData<PictureOfDay>()
     val pictureOfDay: LiveData<PictureOfDay>
         get() = _pictureOfDay
@@ -29,7 +30,7 @@ class PictureOfDayViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 _status.value = ApiStatus.LOADING
-                val picture = NASAApi.retrofitPictureService.getTodayPictureOfTheDay(BuildConfig.API_KEY)
+                val picture = repository.getTodayPictureOfTheDay()
                 _pictureOfDay.value = picture
                 _status.value = ApiStatus.DONE
             } catch (ex: UnknownHostException) {
@@ -43,8 +44,7 @@ class PictureOfDayViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 _status.value = ApiStatus.LOADING
-                val picture = NASAApi.retrofitPictureService.getPictureOfTheDay(date,
-                        BuildConfig.API_KEY)
+                val picture = repository.getTodayPictureOfTheDay()
                 _pictureOfDay.value = picture
                 _status.value = ApiStatus.DONE
             } catch (ex: UnknownHostException) {
